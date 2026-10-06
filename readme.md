@@ -15,20 +15,20 @@
 ## File Handling
 - "Software Needed.txt"
 with open(Software Needed.txt", 'w') as file:
-    """
-    r: read only
-    w: write only
-    a: append
-    t: text mode
-    +: open for updating
-    r+: read and write
-    x: exclusive creation
+
+    - r: read only
+    - w: write only
+    - a: append
+    - t: text mode
+    - +: open for updating
+    - r+: read and write
+    - x: exclusive creation
     
-    Important Notice:
+    **Important Notice:**
         Python distinguishes between binary mode (“b”) and text mode (“t”).
         f = open('workfile', 'w', encoding="utf-8") 
 
     
-    """
-    file.write('All the software has been installed. I have install other sotware such as ML-Flow')
+
+    -Example: file.write('All the software has been installed. I have install other sotware such as ML-Flow')
     
