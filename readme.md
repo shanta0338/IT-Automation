@@ -1,7 +1,11 @@
 # Google IT Automation with Python
-- Here, I upload the codes and files that I think important.
 
+
+- Here, I upload the codes and files that I think important.
+-----------------------------------------------------------------------------------------------------------------------------------------------------
 ## File paths
+
+
  - Absolute Path: 
     /home/user/projects/linux/notes.txt
  - Relative Path:
@@ -12,7 +16,11 @@
     - . (dot) : Refers to the current directory
     - .. (double dot) : Refers to the parent directory
 
+    -------------------------------------------------------------------------------------------------------------------------------------------------
+
 ## File Handling
+
+
 - "Software Needed.txt"
 with open(Software Needed.txt", 'w') as file:
 
@@ -26,11 +34,11 @@ with open(Software Needed.txt", 'w') as file:
     
     **Important Notice:**
 
-    
+
         Python distinguishes between binary mode (“b”) and text mode (“t”).
         f = open('workfile', 'w', encoding="utf-8") 
 
     
 
-    -Example: file.write('All the software has been installed. I have install other sotware such as ML-Flow')
+    - Example: file.write('All the software has been installed. I have install other sotware such as ML-Flow')
     
