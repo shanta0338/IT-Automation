@@ -25,6 +25,8 @@ with open(Software Needed.txt", 'w') as file:
     - x: exclusive creation
     
     **Important Notice:**
+
+    
         Python distinguishes between binary mode (“b”) and text mode (“t”).
         f = open('workfile', 'w', encoding="utf-8") 
 
