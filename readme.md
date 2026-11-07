@@ -1,7 +1,9 @@
 Readme · MD
-# Google IT Automation with Python
+# IT Automation with Python
  
 A structured reference guide covering key terminology, file and directory operations, CSV processing, debugging and bisecting workflows, shell and Python scripting, software profiling, and concurrency and parallelism in Python.
+
+- Reference: [GitHub](https://github.com/google/it-cert-automation-practice)
  
 ## Table of Contents
  
