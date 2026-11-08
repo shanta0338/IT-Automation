@@ -1,0 +1,75 @@
+# ===== IT Automation course (Puppet, Python, Bash, Git, Docker) =====
+
+# ---------- Secrets and credentials ----------
+.env
+*.env
+!.env.example
+*.pem
+*.key
+*.pfx
+*.p12
+id_rsa*
+secrets.*
+credentials.*
+*.token
+
+# ---------- Puppet ----------
+# Never commit the encryption keys used by hiera-eyaml
+keys/
+private_key.pkcs7.pem
+# Downloaded modules and tool caches (re-created by r10k / librarian / bundler)
+.modules/
+.librarian/
+.tmp/
+.r10k/
+.bundle/
+vendor/bundle/
+Puppetfile.lock
+Gemfile.lock
+# Test fixtures downloaded by puppetlabs_spec_helper / PDK
+spec/fixtures/modules/
+spec/fixtures/manifests/
+.rspec_status
+pkg/
+# Vagrant test VMs
+.vagrant/
+# Course practice folder for throwaway manifests (e.g. ~/puppet-practice)
+practice/
+scratch/
+
+# ---------- Python ----------
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.coverage
+htmlcov/
+venv/
+.venv/
+env/
+.ipynb_checkpoints/
+
+# ---------- Bash / scripts ----------
+*.swp
+*.swo
+*~
+*.bak
+*.orig
+
+# ---------- Docker ----------
+# Local overrides and bind-mounted data
+docker-compose.override.yml
+.docker/
+volumes/
+
+# ---------- Logs, output, temp ----------
+logs/
+*.log
+output/
+tmp/
+
+# ---------- Editor and OS ----------
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
