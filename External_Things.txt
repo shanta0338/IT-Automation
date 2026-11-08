@@ -1,2 +1,3 @@
 What is htop and ntp in configuration?
 Answer: htop is an interactive, visual process viewer and system monitor for Linux, while NTP (Network Time Protocol) is a protocol used to synchronize system clocks across a network
+
