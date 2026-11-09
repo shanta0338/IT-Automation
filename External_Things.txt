@@ -1,6 +1,24 @@
 What is htop and ntp in configuration?
 Answer: htop is an interactive, visual process viewer and system monitor for Linux, while NTP (Network Time Protocol) is a protocol used to synchronize system clocks across a network.
 
+What is Manifest, Resource, Class, Module, Catalog, agent, Dacter, and Idempotence?
+Answer:
+    1. A file ending in .pp that holds your Puppet code. (Manifest)
+    2. One thing to manage: a package file, service or user. (Resource)
+    3. A named group of resources you can reuse. (Class)
+    4. A folder that bundles classes, files, and templates. (Module)
+    5. The puppet program on each managed machine. (Agent)
+    6. The machine that stores code and builds Catalogs. (Server)
+    7. The final list of resources compiled for one machine. (Catelog)
+    8. A tool that collects facts about a machine (OS, IP, memory). (Facter)
+    9. Running it again changes nothing if the machine is already correct. (Idempotence)
+
+What is node in Puppet terminology?
+Answer: Any system where we can run puppet agent.
+
+** Puppet's Certificate Infrastructure use to validate the identity of each machine **
+
+
 -------------------------------------------------------------------------------------------------------------------------
 
 Puppet nodes:
@@ -11,7 +29,7 @@ node default {
   }
 } /
 
-About this code 
+About this code: 
 The command node default installs the sudo and ntp classes on all default nodes. The sudo class is installed with its default parameters, because no parameters are specified. 
 The ntp class is installed with an additional parameter, indicated by servers => ['ntp1.example.com', 'ntp2.example.com']. 
 
@@ -25,7 +43,61 @@ node webserver.example.com {
   class { 'apache': }
 }
 
-About this code
+About this code:
 The command node webserver.example.com installs the sudo, ntp, and apache classes on nodes with the fully-qualified domain name (FQDN) webserver.example.com. 
 
 Note: Because nodes with this FQDN have a specific set of classes that apply to them, the node default command will not apply any classes to them. 
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+Setting up Puppet clients and servers:
+
+Introduction
+This follow-along reading is organized to match the content in the video that follows. It contains the same code shown in the next video. 
+These code blocks will provide you with the opportunity to see how the code is written and can be used as a reference as you work through the course.
+
+Code: sudo puppet config --section master set autosign true
+About this code: This command configures Puppet to automatically sign the certificate requests of added nodes.
+
+Code: 
+    ssh webserver
+    sudo apt install puppet
+    sudo puppet config set server ubuntu.example.com
+
+About this code:
+The command ssh webserver allows you to ssh into a machine called webserver. The sudo apt install puppet installs the Puppet agent onto webserver with the Puppet package. 
+Then, the command sudo puppet config set server ubuntu.example.com configures Puppet to talk to the server on ubuntu.example.com.
+
+Code: sudo puppet agent -v --test
+
+About this code:
+This code tests the connection between the Puppet agent on the machine and the Puppet master. 
+The -v command indicates that the output should be verbose, and the --test command indicates that this is a test run. 
+
+Code:
+    vim /etc/puppet/code/environments/production/manifests/site.pp
+
+    node webserver {
+    class { 'apache': }
+    }
+
+    node default {}
+
+About this code:
+View and create the site.pp manifest file by entering editing mode with the vim command. 
+First, to install Apache on the webserver nodes, define the webserver node with the node webserver command, and then include the Apache class without any parameters with class{‘apache’}. 
+Second, define the default node definition with the code node default{}. We won’t add any classes yet.
+
+Code: sudo systemctl enable puppet
+
+About this code:
+This code uses the systemctl command to enable the puppet service with the enable parameter so that the Puppet agent is started whenever the machine reboots. 
+
+Code:
+    sudo systemctl start puppet
+    sudo systemctl status puppet
+
+About this code: This code starts the puppet service with the start parameter, then checks its status with the status parameter. 
+
+
+-----------------------------------------------------------------------------------------------------------------------------------
