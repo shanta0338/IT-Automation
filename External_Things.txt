@@ -101,3 +101,5 @@ About this code: This code starts the puppet service with the start parameter, t
 
 
 -----------------------------------------------------------------------------------------------------------------------------------
+
+More about puppet server: https://www.masterzen.fr/2010/11/14/puppet-ssl-explained/
