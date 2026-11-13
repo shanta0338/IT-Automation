@@ -1,0 +1,43 @@
+Introduction
+
+
+In the previous lab, you were an IT administrator in a small-sized startup that runs a web server named ws01 in the cloud. One day, when you tried to access the website served by ws01, you got an HTTP Error 500. Since your deployment is still in an early stage, you suspected a developer might have used this server to do some testing or run some experiments. Next, you needed to troubleshoot ws01, find out what's going on, and get the service back to a healthy state.
+
+This exemplar is a walk-through of the previous Qwiklab activity, including detailed instructions and solutions. You may use this exemplar if you were unable to complete the lab and/or you need extra guidance in competing lab tasks. You may also refer to this exemplar to prepare for the graded quiz in this module.
+
+Error detection
+Open the website served by ws01 by typing the external IP address of ws01 in a web browser. The external IP address of ws01 can be found in the Connection Details Panel on the left-hand side.
+
+IP address 104.155.146.132 showing a 500 Internal Server Error on a webpage.
+
+Debug the issue
+
+
+HTTP response status codes indicate whether a specific 
+HTTP
+ request has been successfully completed. Responses are grouped into five classes:
+
+Informational responses (100–199)
+
+Successful responses (200–299)
+
+Redirects (300–399)
+
+Client errors (400–499)
+
+Server errors (500–599)
+
+The HyperText Transfer Protocol (HTTP) 500 Internal Server Error response code indicates that the server encountered an unexpected condition that prevented it from fulfilling the request. Before troubleshooting the error, you'll need to understand more about systemctl.
+
+systemctl is a utility for controlling the systemd system and service manager. It comes with a long list of options for different functionality, including starting, stopping, restarting, or reloading a daemon.
+
+Let's now troubleshoot the issue. Since the webpage returns an HTTP error status code, let's check the status of the web server i.e apache2.
+
+Code: sudo systemctl status apache2
+
+
+The outputs say Failed to start The Apache HTTP Server. This might be the reason for the HTTP error status code displayed on the webpage. 
+Let's try to restart the service using the following command: sudo systemctl restart apache2
+
+Hmm this command also fails. Let's check the status of the service again and try to find the root cause of the issue.
+Code: sudo systemctl status apache2
