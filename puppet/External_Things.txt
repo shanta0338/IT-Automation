@@ -18,6 +18,18 @@ Answer: Any system where we can run puppet agent.
 
 ** Puppet's Certificate Infrastructure use to validate the identity of each machine **
 
+What is Production?
+Answer: The parts of the infrastructure where a service is execuated and served to its user.
+
+------------------------------------------------------------------------------------------------------------------------
+
+Basic structure of a test file
+
+require 'spec_helper'
+
+describe '<name of the thing being tested>' do
+  # Your tests go in here
+end
 
 -------------------------------------------------------------------------------------------------------------------------
 
@@ -120,3 +132,29 @@ About this code:
     When this is the case, the gksu package should have the ensure parameter set to latest: ensure('latest').
 
 ------------------------------------------------------------------------------------------------------------------------------------
+
+Check out the following links for more information:
+
+    Getting started on GCP with Terraform
+
+    Creating groups of unmanaged instances
+
+    Official documentation is here: 
+    https://cloud.google.com/load-balancing/docs/https/
+
+    https://geekflare.com/gcp-load-balancer/
+
+    Interesting articles about hybrid setups:
+
+    https://www.terraform.io/docs/enterprise/before-installing/reference-architecture/gcp.html
+
+    https://www.hashicorp.com/resources/terraform-on-premises-hybrid-cloud-wayfair
+
+Here are some links to some common Quotas you’ll find in various cloud providers
+
+    https://cloud.google.com/compute/quotas#understanding_vm_cpu_and_ip_address_quotas
+
+    https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html
+
+    https://docs.microsoft.com/en-us/azure/azure-subscription-service-limits#service-specific-limits
+

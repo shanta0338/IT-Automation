@@ -1,0 +1,12 @@
+Templating a customized VM
+
+Introduction
+This follow-along reading is organized to match the content in the video that follows. It contains the same code shown in the next video. These code blocks will provide you with the opportunity to see how the code is written and can be used as a reference as you work through the course.
+
+Code: gcloud init
+
+about this code:
+The gcloud init command sets up the authentication procedure between the virtual machine and Google Cloud. 
+Note that you must log in to your cloud account to work with Google cloud from your CLI.
+
+webserver-template ws1 ws2 ws3 ws4 ws5

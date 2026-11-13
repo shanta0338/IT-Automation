@@ -1,0 +1,88 @@
+Puppet rules:
+
+The goal of this exercise is for you to see what Puppet looks like in action. 
+During this lab, you'll be connecting to two different VMs. The VM named puppet is the Puppet Master that has the Puppet rules that you'll need to edit. 
+The VM named linux-instance is a client VM that you'll use to test that your catalog was applied successfully.
+
+The manifests used for the production environment are located in the directory /etc/puppet/code/environments/production/manifests, which contains a site.pp file with the node definitions that will be used for this deployment. 
+On top of that, the modules directory contains a bunch of modules that are already in use. You'll be extending the code of this deployment to add more functionality to it.
+
+Install packages:
+
+There's a module named packages on the Puppet VM instance that takes care of installing the packages that are needed on the machines in the fleet. 
+Use the command to visit the module:
+cd /etc/puppet/code/environments/production/modules/packages
+
+This module already has a resource entry specifying that python3-requests is installed on all machines. 
+You can see the init.pp file using the cat command on the Puppet VM instance.
+
+Code: cat manifests/init.pp
+
+Now, add an additional resource in the same init.pp file within the path /etc/puppet/code/environments/production/modules/packages, 
+ensuring the golang package gets installed on all machines that belong to the Debian family of operating systems (which includes Debian, Ubuntu, LinuxMint, and a bunch of others).
+
+This resource will be very similar to the previous python3-requests one. Add edit permission to the file before moving forward using:
+
+sudo chmod 646 manifests/init.pp
+
+Open the init.pp file using the nano editor like this:
+nano manifests/init.pp
+
+To install the package on Debian systems only, you'll need to use the os family fact, like this:
+
+if $facts[os][family] == "Debian" {
+# Resource entry to install golang package
+}
+
+Add the resource entry specifying golang package to be installed on all machines of Debian family after the previous resource entry.
+
+The snippet would now look like this:
+
+if $facts[os][family] == "Debian" {
+     package { 'golang':
+       ensure => installed,
+     }
+}
+
+The complete init.pp file would now look similar to the below file:
+
+class packages {
+   package { 'python3-requests':
+       ensure => installed,
+   }
+   if $facts[os][family] == "Debian" {
+     package { 'golang':
+       ensure => installed,
+     }
+  }
+}
+
+After this, we will also need to ensure that the nodejs package is installed on machines that belong to the RedHat family. Refer to the below snippet for this.
+
+Code:
+if $facts[os][family] == "RedHat" {
+  #Resource entry
+}
+
+Complete the above snippet just like the previous one.
+
+The complete init.pp file should now look like this:
+
+class packages {
+   package { 'python3-requests':
+       ensure => installed,
+   }
+   if $facts[os][family] == "Debian" {
+     package { 'golang':
+       ensure => installed,
+     }
+  }
+   if $facts[os][family] == "RedHat" {
+     package { 'nodejs':
+       ensure => installed,
+     }
+  }
+}
+
+
+

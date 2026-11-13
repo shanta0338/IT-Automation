@@ -1,0 +1,64 @@
+1. IaaS (Infrastructure as a Service)
+
+• What it is: Provides fundamental, raw computing resources over the internet, such as virtual machines, storage, and networking.
+• Your responsibility: You manage the operating system, middleware, data, and applications.
+• Provider's responsibility: The provider manages the physical hardware, data centers, and virtualization layer.
+• Control level: Highest control and flexibility.
+• Examples: Amazon Web Services (AWS) Virtual Private Cloud, Microsoft Azure Virtual Machines, Google Compute Engine.
+
+2. PaaS (Platform as a Service)
+
+• What it is: Delivers a complete cloud platform and deployment environment so developers can build, test, and run applications without managing the underlying hardware.
+• Your responsibility: You write, deploy, and manage your custom applications and data.
+• Provider's responsibility: The provider manages the hardware, operating system, and runtime environment.
+• Control level: Medium control; focused on software development speed.
+• Examples: AWS Elastic Beanstalk, Heroku, Red Hat OpenShift.
+
+3. SaaS (Software as a Service)
+
+• What it is: Delivers fully developed, ready-to-use software applications over the web on a subscription basis.
+• Your responsibility: You only manage your user accounts, access permissions, and data.
+• Provider's responsibility: The provider manages everything else—including infrastructure, security, maintenance, and software updates.
+• Control level: Lowest control, highest convenience.
+• Examples: Google Workspace, Microsoft 365, Salesforce, Dropbox.
+
+
+4. Cloud Deployment Models
+
+Deployment models define who owns the infrastructure and how it is shared:
+• Public Cloud: Owned and operated by third-party providers (such as Google Cloud or Microsoft Azure). Resources are shared (multi-tenant) and delivered over the internet on a pay-as-you-go basis.
+• Private Cloud: Dedicated exclusively to a single organization. It can be hosted physically on-premises or managed by a third party, offering high security, privacy, and control.
+• Hybrid Cloud: Combines public and private clouds, allowing data and applications to be shared between them for greater flexibility and workload optimization.
+• Multi-Cloud: Uses two or more cloud services from different public or private vendors to avoid vendor lock-in and increase redundancy.
+• Community Cloud: Infrastructure shared by several organizations with common compliance, security, or policy concerns.
+
+
+5. SSH (Secure Shell)
+
+SSH is a network protocol that lets you securely log into and manage a remote computer over an unsecured network like the internet.
+• Network Location. It operates at the Application layer (Layer 7) of the network model and typically uses Port 22.
+• Functional Purpose. It creates an encrypted tunnel so system administrators and developers can run commands, manage cloud servers, and transfer files (via SFTP or SCP) without exposing passwords or data.
+• User Interaction. Users typically interact with SSH through a command-line terminal or client software like PuTTY. Both the client and the server must authenticate each other using usernames, passwords, or cryptographic key pairs.
+
+6. SSL (Secure Sockets Layer) / TLS
+
+SSL is a security protocol designed to encrypt data sent between a web browser and a web server. Today, SSL has been replaced by its modern, more secure successor, TLS (Transport Layer Security), though people still commonly refer to both as SSL.
+• Network Location. It operates at the Session and Presentation layers (Layers 5–6) and typically uses Port 443 to turn standard HTTP traffic into secure HTTPS.
+• Functional Purpose. It protects sensitive online data—such as login credentials, emails, and credit card numbers—from interception and tampering during transit.
+• User Interaction. Everyday internet users interact with SSL/TLS automatically whenever they visit a secure website. Instead of requiring the user to log in with keys, the web browser automatically verifies the website's identity using a digital SSL certificate.
+
+7. Load Balancer
+
+- A load balancer is a hardware device, software application, or cloud service that acts as an intermediary to distribute incoming network or application traffic across multiple backend servers.
+
+8. Orchestration
+
+- Orchestration is the coordinated execution of multiple IT automation tasks or processes. Orchestration is usually applied across multiple computer systems, applications, and services to ensure that deployment, configuration management, and other processes are performed in the proper sequence. 
+
+- Automation and orchestration are distinct, but related concepts. Automation is the use of software to perform tasks without human intervention, to minimize errors and reduce the time spent manually performing the operations needed to deploy, manage, and scale IT applications and infrastructure. 
+
+- Orchestration coordinates automated tasks across multiple systems into higher-order workflows, so that individual tasks can work together to serve a specific function or process.
+
+
+
+
